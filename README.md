@@ -10,6 +10,7 @@ It predicts:
 •	🤖 AI-powered ride matching & chatbot 
 
 ****🎯 OBJECTIVE****
+---
 To build a smart ride ecosystem that:
 •	Minimizes passenger wait time 
 •	Maximizes driver utilization 
@@ -18,15 +19,18 @@ To build a smart ride ecosystem that:
 •	Enables real-time intelligent decision making 
 
 ****Modules: ****
-*** 1️⃣ 📊 Demand Prediction** -	Predicts future ride requests and Helps in resource planning 
-                        Model: Random Forest Regressor
-                        Input: Time, location, historical demand
-                        Output: Predicted demand
+---
+** 1️⃣ 📊 Demand Prediction** 
+Predicts future ride requests and Helps in resource planning 
+        Model: Random Forest Regressor
+        Input: Time, location, historical demand
+        Output: Predicted demand
   ------------------------------------------------------------------------------------------------
- *** 2️⃣ 🚗 Supply Prediction** - Estimates available drivers 
-                        Model: Random Forest Regressor
-                        Input: Driver activity, region, time
-                        Output: Driver availability
+ *** 2️⃣ 🚗 Supply Prediction** 
+ Estimates available drivers 
+        Model: Random Forest Regressor
+        Input: Driver activity, region, time
+        Output: Driver availability
   ------------------------------------------------------------------------------------------------
 ***3️⃣ ⚖️ Demand–Supply Gap + Dynamic Pricing **---> Predicts surge pricing
   ------------------------------------------------------------------------------------------------

@@ -525,12 +525,11 @@ elif page == "Predictions":
 
 ########################################################################################################
 #####################PAGE3##############################################################################
-elif page == "Hotspot & Driver Behaviour":
-    st.title("📍 Hotspot & Driver Behaviour Intelligence")
+elif page == "Hotspot Detection":
+    st.title("📍 Hotspot Detection")
     # =========================
     # HOTSPOT PREDICTION
     # =========================
-    st.subheader("🔥 Hotspot Prediction")
     if not st.session_state.get('predictions'):
         st.warning("⚠️ Please run Predictions first")
         st.stop()
@@ -691,7 +690,7 @@ elif page == "Hotspot & Driver Behaviour":
     
         st.plotly_chart(fig, use_container_width=True)
         # =========================
-        # TOP HOTSPOTS (BONUS)
+        # TOP HOTSPOTS
         # =========================
         st.subheader("🏆 Top Hotspots")
 
@@ -710,7 +709,7 @@ elif page == "Driver Behaviour":
     st.write("File:", uploaded_file)
     if uploaded_file is not None:
         img = Image.open(uploaded_file).convert("RGB") 
-        st.image(img, caption="Uploaded Image", use_column_width=True)
+        st.image(img, caption="Uploaded Image", use_container_width=True)
 
         # =========================
         # PREPROCESS IMAGE
@@ -722,40 +721,57 @@ elif page == "Driver Behaviour":
         # =========================
         # PREDICTION
         # =========================
-        if st.button("Analyze Behaviour"):
+    if st.button("Analyze Behaviour"):
 
-            pred = models['behavior'].predict(img_array)
-
-            # Safe extraction
-            prediction = float(pred.flatten()[0])
-
-            # =========================
-            # OUTPUT
-            # =========================
-            if prediction > 0.5:
-                st.error("🚫 Unsafe Driving Detected")
-                confidence = prediction
-            else:
-                st.success("✅ Safe Driving Behaviour")
-                confidence = 1 - prediction  
-
-            # =========================
-            # CONFIDENCE
-            # =========================
-            st.metric(
-                "Confidence Score", 
-                f"{round(confidence * 100, 2)}%")
-
-            # =========================
-            # INSIGHT
-            # =========================
-            if prediction > 0.8:
-                st.warning("⚠️ High risk driver → consider blocking rides")
-            elif prediction > 0.6:
-                st.warning("⚠️ Moderate risk → monitor driver behaviour")
-            else:
-                st.info("✅ Driver behaviour within safe limits")
-
+        pred = models['behavior'].predict(img_array)
+        preds = pred[0]
+    
+        # =========================
+        # ORIGINAL MODEL CLASSES
+        # =========================
+        class_labels = [
+            "distractions",
+            "safe_driving",
+            "talking_phone",
+            "texting_phone",
+            "turning"
+        ]
+    
+        class_index = np.argmax(preds)
+        confidence = float(preds[class_index])
+        predicted_class = class_labels[class_index]
+    
+        # =========================
+        # MAP TO FINAL CLASSES
+        # =========================
+        if predicted_class in ["distractions", "turning"]:
+            final_class = "Distractions"
+            st.error(f"🚫 {final_class}")
+    
+        elif predicted_class in ["talking_phone", "texting_phone"]:
+            final_class = "Phone Usage"
+            st.warning(f"📱 {final_class}")
+    
+        else:
+            final_class = "Safe Driving"
+            st.success(f"✅ {final_class}")
+    
+        # =========================
+        # CONFIDENCE
+        # =========================
+        st.metric("Confidence Score", f"{round(confidence * 100, 2)}%")
+    
+        # =========================
+        # INSIGHTS
+        # =========================
+        if final_class == "Distractions":
+            st.error("🚨 High risk behaviour → restrict driver or alert system")
+    
+        elif final_class == "Phone Usage":
+            st.warning("⚠️ Driver using phone → unsafe, monitor closely")
+    
+        else:
+            st.info("✅ Driver behaviour is safe")
 #==========================================Page5=================================================
 #AI Assistant 
 #================================================================================================

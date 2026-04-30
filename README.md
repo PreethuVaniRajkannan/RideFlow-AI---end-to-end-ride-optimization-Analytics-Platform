@@ -9,6 +9,14 @@ It predicts:
 •	💬 Customer feedback insights (BERT) 
 •	🤖 AI-powered ride matching & chatbot 
 
+Please install the **requirements.txt** and
+**CLICK HERE** - **[http://localhost:8501](url)** to experience the application. 
+**Hugging face space:**
+        *git clone https://github.com/PreethuVaniRajkannan/rideflow-app.git
+        *cd rideflow-app
+        *pip install -r requirements.txt
+        *streamlit run app.py
+
 ****🎯 OBJECTIVE****
 ---
 To build a smart ride ecosystem that:
@@ -19,42 +27,41 @@ To build a smart ride ecosystem that:
 •	Enables real-time intelligent decision making 
 
 ****Modules: ****
----
 ** 1️⃣ 📊 Demand Prediction** 
 Predicts future ride requests and Helps in resource planning 
         Model: Random Forest Regressor
         Input: Time, location, historical demand
         Output: Predicted demand
   ------------------------------------------------------------------------------------------------
- *** 2️⃣ 🚗 Supply Prediction** 
+ ** 2️⃣ 🚗 Supply Prediction** 
  Estimates available drivers 
         Model: Random Forest Regressor
         Input: Driver activity, region, time
         Output: Driver availability
   ------------------------------------------------------------------------------------------------
-***3️⃣ ⚖️ Demand–Supply Gap + Dynamic Pricing **---> Predicts surge pricing
+**3️⃣ ⚖️ Demand–Supply Gap + Dynamic Pricing **---> Predicts surge pricing
   ------------------------------------------------------------------------------------------------
-***4️⃣ ❌ Cancellation Prediction** - Predicts ride cancellation probability 
+**4️⃣ ❌ Cancellation Prediction** - Predicts ride cancellation probability 
                         Model: Random Forest Classifier
                         Input: ETA, driver rating, past behavior
                         Output: Cancellation risk (0/1)
   ------------------------------------------------------------------------------------------------
-***5️⃣ ⏱ ETA Prediction **- Predicts travel time 
+**5️⃣ ⏱ ETA Prediction **- Predicts travel time 
                         Model: XGBoost
                         Input: Distance, traffic, route
                         Output: ETA (minutes)
   ------------------------------------------------------------------------------------------------
-***6️⃣ 🧠 Driver Behaviour Monitoring** - Detects unsafe driving patterns 
+**6️⃣ 🧠 Driver Behaviour Monitoring** - Detects unsafe driving patterns 
                         Model: CNN - Custom and Mobilenet
                         Input: Driver images / video frames
                         Output: Behavior class (safe / unsafe)
   ------------------------------------------------------------------------------------------------
-***7️⃣ 🔥 Demand Hotspot Detection **- Identifies high-demand zones 
+**7️⃣ 🔥 Demand Hotspot Detection **- Identifies high-demand zones 
                         Model: Kmeans Clustering and Pretrained Model - Tabnet
                         Input: Geo heatmaps
                         Output: Hotspot classification
   ------------------------------------------------------------------------------------------------
-***8️⃣ 💬 Feedback Intelligence (BERT)** - Analyzes customer feedback 
+**8️⃣ 💬 Feedback Intelligence (BERT)** - Analyzes customer feedback 
                         Model: BERT (fine-tuned)
                         Tasks:
                         •	Sentiment Analysis 
@@ -63,7 +70,7 @@ Predicts future ride requests and Helps in resource planning
                         •	Positive / Negative 
                         •	Issue type (Driver, Pricing, Delay) 
   ------------------------------------------------------------------------------------------------
-***9️⃣ 🤖 AI Ride Matching Assistant **- Recommends best driver 
+**9️⃣ 🤖 AI Ride Matching Assistant **- Recommends best driver 
                         Logic-based + LLM-style explanation
                         Inputs:
                         •	Demand level 
@@ -74,7 +81,7 @@ Predicts future ride requests and Helps in resource planning
                         •	Best driver 
                         •	Explanation (human-like) 
   ------------------------------------------------------------------------------------------------
-***🔟 🧾 Chatbot (Multi-language)	**- Handles user queries 
+**🔟 🧾 Chatbot (Multi-language)	**- Handles user queries 
                           Features:
                           •	Ride tracking 
                           •	Pricing queries 
@@ -94,6 +101,13 @@ Predicts future ride requests and Helps in resource planning
 |🎨 Frontend -------------------- Streamlit
 |⚙️ Deployment	------------------ Hugging face Spaces
 
+**Future Improvements**
+Real-time driver monitoring (Webcam)
+Live ride tracking integration
+Advanced surge pricing model
+API integration with ride apps
+
+👤 Author Preethu Vani Rajkannan
 
 
 

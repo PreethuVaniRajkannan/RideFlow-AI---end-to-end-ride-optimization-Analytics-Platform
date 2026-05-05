@@ -9,12 +9,12 @@ It predicts:
 •	💬 Customer feedback insights (BERT) 
 •	🤖 AI-powered ride matching & chatbot 
 
-Please install the **requirements.txt** and **Click the below **Hugging face space:** link:
+Please install the requirements.txt and Click the below Hugging face space link:
 ---
 https://huggingface.co/spaces/preethuvani-rajkannan/rideflowAI
 ---
 
-****🎯 OBJECTIVE****
+**🎯 OBJECTIVE**
 ---
 To build a smart ride ecosystem that:
 •	Minimizes passenger wait time 
@@ -23,80 +23,89 @@ To build a smart ride ecosystem that:
 •	Improves customer satisfaction 
 •	Enables real-time intelligent decision making 
 
-****Modules: ****
-** 1️⃣ 📊 Demand Prediction** 
-Predicts future ride requests and Helps in resource planning 
+Modules:
+1️⃣ 📊 Demand Prediction
+        Predicts future ride requests and Helps in resource planning 
         Model: Random Forest Regressor
         Input: Time, location, historical demand
         Output: Predicted demand
   ------------------------------------------------------------------------------------------------
- ** 2️⃣ 🚗 Supply Prediction** 
- Estimates available drivers 
+ 2️⃣ 🚗 Supply Prediction 
+        Estimates available drivers 
         Model: Random Forest Regressor
         Input: Driver activity, region, time
         Output: Driver availability
   ------------------------------------------------------------------------------------------------
-**3️⃣ ⚖️ Demand–Supply Gap + Dynamic Pricing **---> Predicts surge pricing
+3️⃣ ⚖️ Demand–Supply Gap + Dynamic Pricing
+        Predicts surge pricing
+        Takes the previous predictions as input and uses surge function 
   ------------------------------------------------------------------------------------------------
-**4️⃣ ❌ Cancellation Prediction** - Predicts ride cancellation probability 
-                        Model: Random Forest Classifier
-                        Input: ETA, driver rating, past behavior
-                        Output: Cancellation risk (0/1)
+4️⃣ ❌ Cancellation Prediction
+        Predicts ride cancellation probability 
+        Model: Random Forest Classifier
+        Input: ETA, driver rating, past behavior
+        Output: Cancellation risk (0/1)
   ------------------------------------------------------------------------------------------------
-**5️⃣ ⏱ ETA Prediction **- Predicts travel time 
-                        Model: XGBoost
-                        Input: Distance, traffic, route
-                        Output: ETA (minutes)
+5️⃣ ⏱ ETA Prediction 
+        Predicts travel time 
+        Model: XGBoost
+        Input: Distance, traffic, route
+        Output: ETA (minutes)
   ------------------------------------------------------------------------------------------------
-**6️⃣ 🧠 Driver Behaviour Monitoring** - Detects unsafe driving patterns 
-                        Model: CNN - Custom and Mobilenet
-                        Input: Driver images / video frames
-                        Output: Behavior class (safe / unsafe)
+6️⃣ 🧠 Driver Behaviour Monitoring
+        Detects unsafe driving patterns 
+        Model: CNN - Custom and Mobilenet
+        Input: Driver images / video frames
+        Output: Behavior class (safe / unsafe)
   ------------------------------------------------------------------------------------------------
-**7️⃣ 🔥 Demand Hotspot Detection **- Identifies high-demand zones 
-                        Model: Kmeans Clustering and Pretrained Model - Tabnet
-                        Input: Geo heatmaps
-                        Output: Hotspot classification
+7️⃣ 🔥 Demand Hotspot Detection
+        Identifies high-demand zones 
+        Model: Kmeans Clustering and Pretrained Model - Tabnet
+        Input: Geo heatmaps
+        Output: Hotspot classification
   ------------------------------------------------------------------------------------------------
-**8️⃣ 💬 Feedback Intelligence (BERT)** - Analyzes customer feedback 
-                        Model: BERT (fine-tuned)
-                        Tasks:
-                        •	Sentiment Analysis 
-                        •	Issue Classification 
-                        Output:
-                        •	Positive / Negative 
-                        •	Issue type (Driver, Pricing, Delay) 
+8️⃣ 💬 Feedback Intelligence (BERT) 
+        Analyzes customer feedback 
+        Model: BERT (fine-tuned)
+        Tasks:
+        •	Sentiment Analysis 
+        •	Issue Classification 
+        Output:
+        •	Positive / Negative 
+        •	Issue type (Driver, Pricing, Delay) 
   ------------------------------------------------------------------------------------------------
-**9️⃣ 🤖 AI Ride Matching Assistant **- Recommends best driver 
-                        Logic-based + LLM-style explanation
-                        Inputs:
-                        •	Demand level 
-                        •	ETA 
-                        •	Driver rating 
-                        •	Cancellation risk 
-                        Output:
-                        •	Best driver 
-                        •	Explanation (human-like) 
+9️⃣ 🤖 AI Ride Matching Assistant 
+        Recommends best driver 
+        Logic-based + LLM-style explanation
+  Inputs:
+        •	Demand level 
+        •	ETA 
+        •	Driver rating 
+        •	Cancellation risk 
+Output:
+        •	Best driver 
+        •	Explanation (human-like) 
   ------------------------------------------------------------------------------------------------
-**🔟 🧾 Chatbot (Multi-language)	**- Handles user queries 
-                          Features:
-                          •	Ride tracking 
-                          •	Pricing queries 
-                          •	ETA queries 
+🔟 🧾 Chatbot (Multi-language)
+        Handles user queries 
+Features:
+        •	Ride tracking 
+        •	Pricing queries 
+        •	ETA queries 
   ------------------------------------------------------------------------------------------------
   ------------------------------------------------------------------------------------------------
   ------------------------------------------------------------------------------------------------
 
-******Technical Stack******
+**Technical Stack**
 
-|👨‍💻 Programming	 -------------- Python 3.10+
-|📊 Data Processing  ------------ Pandas, NumPy
-|🤖 Machine Learning	 ----------- Scikit-learn - XGBoost, Randomforest
-|🧠 Deep Learning	-------------- TensorFlow / Keras /Pytorch/CNN, Transfer Learning (MobileNetV2, Tabnet); LSTM
-|💬 NLP	Transformers ----------- BERT, RAG, LLM
-|🗂 Model Storage	-------------- Pickle (.pkl), Keras ( .keras)
-|🎨 Frontend -------------------- Streamlit
-|⚙️ Deployment	------------------ Hugging face Spaces
+|👨‍💻 Programming	 -------------- Python 3.10+|
+|📊 Data Processing  ------------ Pandas, NumPy|
+|🤖 Machine Learning	 ----------- Scikit-learn - XGBoost, Randomforest|
+|🧠 Deep Learning	-------------- TensorFlow / Keras /Pytorch/CNN, Transfer Learning (MobileNetV2, Tabnet); LSTM|
+|💬 NLP	Transformers ----------- BERT, RAG, LLM|
+|🗂 Model Storage	-------------- Pickle (.pkl), Keras ( .keras)|
+|🎨 Frontend -------------------- Streamlit|
+|⚙️ Deployment	------------------ Hugging face Spaces|
 
 **Future Improvements**
 Real-time driver monitoring (Webcam)

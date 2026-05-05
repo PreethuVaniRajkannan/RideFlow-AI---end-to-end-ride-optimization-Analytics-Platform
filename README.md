@@ -9,13 +9,10 @@ It predicts:
 •	💬 Customer feedback insights (BERT) 
 •	🤖 AI-powered ride matching & chatbot 
 
-Please install the **requirements.txt** and
-**CLICK HERE** - **[http://localhost:8501](url)** to experience the application. 
-**Hugging face space:**
-        *git clone https://github.com/PreethuVaniRajkannan/rideflow-app.git
-        *cd rideflow-app
-        *pip install -r requirements.txt
-        *streamlit run app.py
+Please install the **requirements.txt** and **Click the below **Hugging face space:** link:
+---
+https://huggingface.co/spaces/preethuvani-rajkannan/rideflowAI
+---
 
 ****🎯 OBJECTIVE****
 ---
